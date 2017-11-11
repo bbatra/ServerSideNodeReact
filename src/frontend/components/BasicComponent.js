@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 
 const BasicComponent = () => (
   <div>
-    <h1> I'm a basic componented </h1>
+    <h1> I'm a basic component </h1>
   </div>
 );
 

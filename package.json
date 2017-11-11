@@ -5,9 +5,12 @@
   "main": "index.js",
   "scripts": {
     "babel-node": "babel-node --presets=es2015",
+    "build": "babel-node src/backend/webpackBuild.js",
     "clean-dist": "npm run remove-dist && mkdir ./src/static/dist",
     "dev": "export NODE_ENV=dev; npm-run-all --parallel clean-dist start-watch",
+    "live": "export NODE_ENV=live; npm run build; npm start",
     "remove-dist": "node_modules/.bin/rimraf ./src/static/dist",
+    "start" : "babel-node src/backend/server.js",
     "start-watch": "nodemon --exec npm run babel-node src/backend/server.js --ignore src/static --ignore src/frontend"
   },
   "dependencies": {
@@ -19,6 +22,7 @@
     "babel-preset-react-hmre": "^1.1.1",
     "babel-register": "^6.26.0",
     "body-parser": "^1.18.2",
+    "colors": "^1.1.2",
     "compression": "^1.7.1",
     "config": "^1.28.1",
     "cookie-parser": "^1.4.3",
