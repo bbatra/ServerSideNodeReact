@@ -3,8 +3,8 @@ const express = require('express');
 const webpack = require('webpack');
 const app = express();
 
-if (process.env.NODE_ENV === 'dev') {
-    const webpackConfig = require('../../../webpack.config.dev.js').default;
+if (process.env.NODE_ENV === 'loc') {
+    const webpackConfig = require('../../../webpack.config.loc.js').default;
     const webpackObj = {
         devMiddleware: require('webpack-dev-middleware'),
         config: webpackConfig,
@@ -19,7 +19,6 @@ if (process.env.NODE_ENV === 'dev') {
     }));
 
     app.use(webpackObj.hotMiddleware(compiler));
-
 }
 
 

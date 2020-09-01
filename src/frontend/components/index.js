@@ -3,10 +3,10 @@
  */
 import React, { Component } from 'react';
 
-const BasicComponent = () => (
+const Index = () => (
   <div>
     <h1> I'm a basic component </h1>
   </div>
 );
 
-export default BasicComponent;
+export default Index;

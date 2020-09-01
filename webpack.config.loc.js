@@ -1,19 +1,18 @@
-/**
- * Created by bharatbatra on 11/12/17.
- */
 import path from 'path';
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 var CompressionPlugin = require("compression-webpack-plugin");
 
-
 export default {
-  devtool: 'source-map',
-  entry: { web : [
+  devtool: 'cheap-module-eval-source-map',
+  entry: {
+    web : [
       "babel-polyfill",
+      'webpack/hot/dev-server',
       'eventsource-polyfill',
+      'webpack-hot-middleware/client?reload=true',
       './src/frontend/client' //entry point
-    ],
+    ]
   },
   target: 'web',
   output: {
@@ -21,10 +20,11 @@ export default {
     publicPath: '/static/scripts/',
     filename: '[name]-bundle.js'
   },
+  devServer: {
+    hot: true,
+    contentBase: './static/dist'
+  },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
     new ExtractTextPlugin('bundle.js'),
     new webpack.LoaderOptionsPlugin({
       debug: true
@@ -37,8 +37,7 @@ export default {
         pure_getters: true,
         unsafe: true,
         unsafe_comps: true,
-        screw_ie8: true,
-        dead_code: true,
+        screw_ie8: true
       },
       output: {
         comments: false,
@@ -51,18 +50,17 @@ export default {
       test: /\.(js|jsx)$|\.css$|\.html$/
     }),
     new webpack.NoEmitOnErrorsPlugin(),
-
+    new webpack.HotModuleReplacementPlugin(),
   ],
   module: {
     rules: [{
       test: /\.(js|jsx)$/,
       include: path.join(__dirname, 'src/frontend'),
       loaders: ['babel-loader']
+    }, {
+      test: /(\.css)$/,
+      loader: ExtractTextPlugin.extract('css?sourceMap')
     },
-      {
-        test: /(\.css)$/,
-        loader: ExtractTextPlugin.extract('css?sourceMap')
-      },
       {
         test: /\.json$/,
         loader: 'json-loader'
@@ -73,3 +71,4 @@ export default {
     ]
   }
 };
+
