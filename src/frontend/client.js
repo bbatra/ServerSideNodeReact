@@ -1,11 +1,11 @@
 /**
  * Created by bharatbatra on 11/10/17.
  */
-import React, { Component } from 'react';
+import React from 'react';
 import { hydrate } from 'react-dom';
-import BasicComponent from './components/BasicComponent'
+import Index from './components/index'
 
 hydrate(
-  <BasicComponent />,
+  <Index />,
   document.getElementById('app')
 );

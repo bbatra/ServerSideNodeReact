@@ -7,7 +7,7 @@ import renderReactApp from '../views/reactApp';
 function render(req, res, next) {
 
   const layoutOptions = {
-    bundleJS: 'static/scripts/bundle.js'
+    bundleJS: 'static/scripts/web-bundle.js'
   };
 
   //ANY CLIENT SIDE CONFIG GOES HERE

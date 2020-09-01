@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { renderToString } from 'react-dom/server';
 
-import BasicComponent from '../../frontend/components/BasicComponent'
+import Root from '../../frontend/components/index'
 
+//server side rendering of app
 export default function renderReactApp() {
 
   // Render the component to a string
   const html = renderToString(
-     <BasicComponent />
+     <Root/>
   );
 
 
