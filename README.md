@@ -1,7 +1,13 @@
-Boilerplate featuring
+**Boilerplate featuring**
 
 - Node/express
-- Webpack 3.0
 - React 16.1
+- Webpack 3.0
 - Server side rendering
 - Docker
+
+**To run locally**
+``npm run loc``
+
+**To run with docker**
+``./start.sh``
