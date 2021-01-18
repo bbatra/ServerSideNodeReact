@@ -15,6 +15,7 @@ export default {
     ]
   },
   target: 'web',
+  mode: 'development',
   output: {
     path: __dirname + '/src/static/scripts',
     publicPath: '/static/scripts/',
