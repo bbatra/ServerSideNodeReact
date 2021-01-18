@@ -4,6 +4,8 @@
 const webpack = require('webpack');
 const colors = require('colors');
 const webpackConfig = require('../../webpack.config.live.js').default;
+// TODO maybe call compiler.close(callback)
+// https://webpack.js.org/migrate/5/#cleanup-the-build-code
 const compiler = webpack(webpackConfig);
 console.info('Generating live config Webpack Bundle...'.yellow);
 compiler.run( (err, result) => {

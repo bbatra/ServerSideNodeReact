@@ -28,7 +28,7 @@ export default {
     new webpack.LoaderOptionsPlugin({
       debug: true
     }),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.IgnorePlugin({resourceRegExp: /^\.\/locale$/, contextRegExp: /moment$/}),
     new webpack.optimize.UglifyJsPlugin({
       mangle: true,
       compress: {
@@ -64,7 +64,7 @@ export default {
       },
       {
         test: /\.json$/,
-        loader: 'json-loader'
+         : 'json-loader'
       }],
 
     noParse: [
