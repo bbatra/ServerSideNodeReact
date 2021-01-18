@@ -33,7 +33,7 @@
     "npm-run-all": "^4.1.2",
     "prop-types": "^15.6.0",
     "react": "^17.0.1",
-    "react-dom": "^16.1.0",
+    "react-dom": "^17.0.1",
     "request": "^2.83.0",
     "request-promise": "^4.2.2",
     "rimraf": "^3.0.2",
