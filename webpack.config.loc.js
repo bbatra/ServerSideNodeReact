@@ -15,6 +15,7 @@ export default {
     ]
   },
   target: 'web',
+  mode: 'development',
   output: {
     path: __dirname + '/src/static/scripts',
     publicPath: '/static/scripts/',
@@ -29,7 +30,7 @@ export default {
     new webpack.LoaderOptionsPlugin({
       debug: true
     }),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.IgnorePlugin({resourceRegExp: /^\.\/locale$/, contextRegExp: /moment$/}),
     new webpack.optimize.UglifyJsPlugin({
       mangle: true,
       compress: {

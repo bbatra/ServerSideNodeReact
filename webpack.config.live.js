@@ -16,20 +16,19 @@ export default {
     ],
   },
   target: 'web',
+  mode: 'production',
   output: {
     path: __dirname + '/src/static/scripts',
     publicPath: '/static/scripts/',
     filename: '[name]-bundle.js'
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
+
     new ExtractTextPlugin('bundle.js'),
     new webpack.LoaderOptionsPlugin({
       debug: true
     }),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.IgnorePlugin({resourceRegExp: /^\.\/locale$/, contextRegExp: /moment$/}),
     new webpack.optimize.UglifyJsPlugin({
       mangle: true,
       compress: {
@@ -50,7 +49,7 @@ export default {
       algorithm: "gzip",
       test: /\.(js|jsx)$|\.css$|\.html$/
     }),
-    new webpack.NoEmitOnErrorsPlugin(),
+
 
   ],
   module: {
@@ -65,7 +64,7 @@ export default {
       },
       {
         test: /\.json$/,
-        loader: 'json-loader'
+         : 'json-loader'
       }],
 
     noParse: [

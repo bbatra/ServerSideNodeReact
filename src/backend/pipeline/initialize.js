@@ -10,7 +10,8 @@ if (process.env.NODE_ENV === 'loc') {
         config: webpackConfig,
         hotMiddleware: require('webpack-hot-middleware')
     };
-
+    // TODO maybe call compiler.close(callback)
+    // https://webpack.js.org/migrate/5/#cleanup-the-build-code
     const compiler = webpack(webpackObj.config);
 
     app.use(webpackObj.devMiddleware(compiler, {
