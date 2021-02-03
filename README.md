@@ -1,8 +1,8 @@
 **Boilerplate featuring**
 
 - Node/express
-- React 16.1
-- Webpack 3.0
+- React 17.0.1
+- Webpack 5.20.0
 - Server side rendering
 - Docker
 
